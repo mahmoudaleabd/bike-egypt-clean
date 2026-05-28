@@ -166,16 +166,16 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-forest-600 to-electric-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-slide-up">
+      <section className="py-20 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass rounded-2xl p-12 text-center animate-slide-up">
             <h2 className="text-4xl font-bold mb-4 text-white">Ready to Ride?</h2>
-            <p className="text-xl mb-8 text-white/80">
+            <p className="text-xl mb-8 text-slate-300">
               Join thousands of cyclists across Egypt
             </p>
             <Link
               to="/marketplace"
-              className="bg-white text-forest-600 px-8 py-4 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 inline-block shadow-lg"
+              className="btn-primary inline-block"
             >
               Get Started
             </Link>
