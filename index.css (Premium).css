@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   GLOBAL DARK MODE DEFAULTS & BASE STYLES
+   ======================================== */
+html {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h4 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-relaxed text-slate-300;
+  }
+
+  a {
+    @apply transition-colors duration-250;
+  }
+}
+
+/* ========================================
+   GLASSMORPHISM UTILITIES
+   ======================================== */
+@layer components {
+  .glass {
+    @apply bg-slate-800/30 backdrop-blur-md border border-slate-700/30 rounded-2xl;
+    transition: all 0.3s ease;
+  }
+
+  .glass-lg {
+    @apply glass shadow-glass-lg;
+  }
+
+  .glass-hover {
+    @apply glass hover:bg-slate-800/40 hover:border-slate-600/50 hover:shadow-glass-lg;
+  }
+
+  /* ========================================
+     PREMIUM CARD STYLES
+     ======================================== */
+  .card {
+    @apply glass p-6 rounded-2xl transition-all duration-350;
+  }
+
+  .card-hover {
+    @apply card hover:bg-slate-800/50 hover:shadow-elevation-3 hover:border-primary-400/20 transform hover:-translate-y-1;
+  }
+
+  .card-interactive {
+    @apply card-hover cursor-pointer;
+  }
+
+  /* ========================================
+     PREMIUM BUTTON STYLES
+     ======================================== */
+  .btn {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-250 flex items-center justify-center gap-2 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-elevation-2 hover:shadow-elevation-3;
+  }
+
+  .btn-primary-outline {
+    @apply border-2 border-primary-500 text-primary-400 hover:bg-primary-500/10 hover:border-primary-400;
+  }
+
+  .btn-secondary {
+    @apply glass text-slate-100 hover:bg-slate-800/60 hover:text-primary-300;
+  }
+
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-400 to-accent-500 text-slate-900 font-semibold hover:from-accent-500 hover:to-accent-600 shadow-elevation-2 hover:shadow-elevation-3;
+  }
+
+  .btn-ghost {
+    @apply text-slate-300 hover:text-primary-400 hover:bg-slate-700/20;
+  }
+
+  /* ========================================
+     PREMIUM INPUT STYLES
+     ======================================== */
+  .input {
+    @apply w-full bg-slate-800/50 border border-slate-700/50 rounded-lg px-4 py-3 text-slate-100 placeholder-slate-500 transition-all duration-250;
+  }
+
+  .input:focus {
+    @apply outline-none bg-slate-800/80 border-primary-500/50 ring-2 ring-primary-500/20;
+  }
+
+  .input-glass {
+    @apply glass px-4 py-3 border-slate-700/30;
+  }
+
+  .input-glass:focus {
+    @apply border-primary-400/50 ring-2 ring-primary-500/20;
+  }
+
+  /* ========================================
+     PREMIUM BADGE & TAG STYLES
+     ======================================== */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold transition-all duration-250;
+  }
+
+  .badge-primary {
+    @apply bg-primary-500/20 text-primary-300 border border-primary-500/30;
+  }
+
+  .badge-accent {
+    @apply bg-accent-500/20 text-accent-300 border border-accent-500/30;
+  }
+
+  .badge-success {
+    @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30;
+  }
+
+  .badge-warning {
+    @apply bg-amber-500/20 text-amber-300 border border-amber-500/30;
+  }
+
+  /* ========================================
+     PREMIUM LINK STYLES
+     ======================================== */
+  .link {
+    @apply text-primary-400 hover:text-primary-300 font-medium transition-colors duration-250;
+  }
+
+  .link-underline {
+    @apply link relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary-500 after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* ========================================
+     CONTAINER & LAYOUT
+     ======================================== */
+  .container-premium {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12;
+  }
+
+  .section {
+    @apply py-12 md:py-20 lg:py-28;
+  }
+
+  .section-dark {
+    @apply section bg-gradient-to-b from-slate-950 to-slate-900/50;
+  }
+
+  /* ========================================
+     GRADIENT BACKGROUNDS
+     ======================================== */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-primary-500 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-950/50 via-slate-950 to-slate-900;
+  }
+
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950 pointer-events-none;
+  }
+
+  /* ========================================
+     SCROLL BEHAVIOR
+     ======================================== */
+  @layer utilities {
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* ========================================
+     PREMIUM SCROLLBAR (WebKit browsers)
+     ======================================== */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full hover:bg-slate-600 transition-colors;
+  }
+}
+
+/* ========================================
+   RESPONSIVE PREMIUM SPACING
+   ======================================== */
+@layer utilities {
+  .space-y-safe {
+    --space-y-amount: theme('spacing.8');
+  }
+
+  @screen md {
+    .space-y-safe {
+      --space-y-amount: theme('spacing.12');
+    }
+  }
+}
+
+/* ========================================
+   LIGHT MODE (Alternative - Optional)
+   ======================================== */
+.light {
+  @apply bg-white text-slate-900;
+
+  .glass {
+    @apply bg-white/50 border-slate-200/50;
+  }
+
+  .btn-primary {
+    @apply shadow-elevation-1 hover:shadow-elevation-2;
+  }
+}
+
+/* ========================================
+   ANIMATION & TRANSITION UTILITIES
+   ======================================== */
+@layer utilities {
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .transition-fast {
+    @apply transition-all duration-150 ease-out;
+  }
+
+  .transition-slow {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  .backdrop-blur-glass {
+    @apply backdrop-blur-lg backdrop-brightness-95;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+@media (max-width: 768px) {
+  @layer base {
+    h1 {
+      @apply text-4xl;
+    }
+
+    h2 {
+      @apply text-3xl;
+    }
+
+    h3 {
+      @apply text-2xl;
+    }
+  }
+}
